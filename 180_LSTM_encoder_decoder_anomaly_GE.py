@@ -34,7 +34,7 @@ print("Start date is: ", df['Date'].min())
 print("End date is: ", df['Date'].max())
 
 #Change train data from Mid 2017 to 2019.... seems to be a jump early 2017
-train, test = df.loc[df['Date'] <= '2003-12-31'], df.loc[df['Date'] > '2003-12-31']
+train, test = df.loc[df['Date'] <= '2022-05-12'], df.loc[df['Date'] > '2022-05-13']
 
 
 #Convert pandas dataframe to numpy array
@@ -119,7 +119,7 @@ plt.legend()
 trainPredict = model.predict(trainX)
 trainMAE = np.mean(np.abs(trainPredict - trainX), axis=1)
 plt.hist(trainMAE, bins=30)
-max_trainMAE = 0.3  #or Define 90% value of max as threshold.
+max_trainMAE = 1.3  #or Define 90% value of max as threshold.
 
 testPredict = model.predict(testX)
 testMAE = np.mean(np.abs(testPredict - testX), axis=1)
